@@ -1,13 +1,14 @@
 Leetcode Day
 
-Leetcode Javascript 解题。       
+Leetcode Javascript 解题。
 issue 中给出具体思路，Label 分类。
 
 [Leetcode 主页](https://leetcode-cn.com/u/sa-mo-ye-er-ha/)
 
-**当前排名**： 75425（更新时间：2020/08/05）
+**当前排名**： 74961（更新时间：2020/08/12）
 
 **历史排名**：
+- 74961（更新时间：2020/08/12）
 - 75425（更新时间：2020/08/05）
 - 76844（更新时间：2020/08/04）
 
