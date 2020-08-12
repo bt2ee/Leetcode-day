@@ -8,7 +8,7 @@ var findTargetSumWays = function(nums, S) {
   if (nums.length === 0) return
   let sum = 0
   nums.forEach(item => sum += item)
-  if ((sum + S) % 2 !== 0) return 0
+  if ((sum + S) % 2 !== 0 || sum < S) return 0
   let total = (sum + S) / 2
   let dp = new Array(total + 1).fill(0)
   dp[0] = 1
@@ -29,9 +29,9 @@ var findTargetSumWays = function(nums, S) {
 var findTargetSumWays = function(nums, S) {
   if (nums.length === 0) return 0
   let result = 0
-  backtrack(nums, 0, S)
+  backtrack(0, S)
 
-  function backtrack(nums, i, rest) {
+  function backtrack(i, rest) {
     if (i === nums.length) {
       if (rest === 0) {
         result++
@@ -39,14 +39,14 @@ var findTargetSumWays = function(nums, S) {
       return
     }
     rest += nums[i]
-    backtrack(nums, i + 1, rest)
+    backtrack(i + 1, rest)
     rest -= nums[i]
 
     rest -= nums[i]
-    backtrack(nums, i + 1, rest)
+    backtrack(i + 1, rest)
     rest += nums[i]
   }
   return result
 };
 
-console.log(findTargetSumWays([1, 1, 2, 3], 3))
+console.log(findTargetSumWays([1, 2, 7, 9, 981], 1000000000))
