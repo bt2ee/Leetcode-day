@@ -1,5 +1,5 @@
 var StockSpanner = function() {
-  this.data = []
+  this.data = [];
 };
 
 /**
@@ -8,13 +8,13 @@ var StockSpanner = function() {
  */
 StockSpanner.prototype.next = function(price) {
   let base = 1,
-    offset = this.data.length - 1
+    offset = this.data.length - 1;
   while (offset >= 0 && price >= this.data[offset]["price"]) {
-    base += this.data[offset]["offset"]
-    offset -= this.data[offset]["offset"]
+    base += this.data[offset]["offset"];
+    offset -= this.data[offset]["offset"];
   }
-  this.data.push({ 'price': price, 'offset': base })
-  return base
+  this.data.push({ price: price, offset: base });
+  return base;
 };
 
 /**
