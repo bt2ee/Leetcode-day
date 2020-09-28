@@ -14,9 +14,9 @@
  */
 var connect = function(root) {
   if (root == null) return null
-  let arr = [root]
+  let quene = [root]
   let nextQuene = [];
-  while (arr.length > 0) {
+  while (quene.length > 0) {
     const node = quene.shift();
     if (quene.length > 0) {
       node.next = quene[0];
