@@ -1,68 +1,37 @@
 /**
- * Definition for a binary tree node.
- * function TreeNode(val) {
- *     this.val = val;
- *     this.left = this.right = null;
- * }
+ * // Definition for a Node.
+ * function Node(val, left, right, next) {
+ *    this.val = val === undefined ? null : val;
+ *    this.left = left === undefined ? null : left;
+ *    this.right = right === undefined ? null : right;
+ *    this.next = next === undefined ? null : next;
+ * };
  */
+
 /**
- * @param {TreeNode} root
- * @return {number[][]}
+ * @param {Node} root
+ * @return {Node}
  */
-var levelOrder = function(root) {
-  if (root == null) return [];
-  let result = [],
-    queue = [root];
-
-  while (queue.length > 0) {
-    let length = queue.length;
-    result.push([]);
-
-    for (let i = 0; i < length; i++) {
-      let node = queue.shift();
-      res[res.length - 1].push(node.val);
-      if (node.left) {
-        queue.push(node.left);
-      }
-      if (node.right) {
-        queue.push(node.right);
-      }
+var connect = function(root) {
+  if (root == null) return null
+  let arr = [root]
+  let nextQuene = [];
+  while (arr.length > 0) {
+    const node = quene.shift();
+    if (quene.length > 0) {
+      node.next = quene[0];
     }
-  }
-  return result;
-};
-
-/**
- * Definition for a binary tree node.
- * function TreeNode(val) {
- *     this.val = val;
- *     this.left = this.right = null;
- * }
- */
-/**
- * @param {TreeNode} root
- * @return {number[][]}
- */
-var levelOrder = function(root) {
-  if (root == null) return []
-  let result = [],
-    queue = [root],
-    nextQueue = [],
-    temp = []
-
-  while (queue.length > 0) {
-    let node = queue.shift()
-    temp.push(node.val)
-    if (node.left) { nextQueue.push(node.left) }
+    if (node.left) {
+      nextQuene.push(node.left)
+    }
     if (node.right) {
-      nextQueue.push(node.right)
+      nextQuene.push(node.right)
     }
-    if (queue.length === 0) {
-      result.push([...temp])
-      temp = []
-      queue = nextQueue
-      nextQueue = []
+
+    if (quene.length === 0) {
+      quene = nextQuene
+      nextQuene = []
     }
   }
-  return result
+  return root
 };
