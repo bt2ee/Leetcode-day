@@ -11,12 +11,12 @@
  */
 var levelOrder = function(root) {
   if (root == null) return [];
-  let result = [],
+  let res = [],
     queue = [root];
 
   while (queue.length > 0) {
     let length = queue.length;
-    result.push([]);
+    res.push([]);
 
     for (let i = 0; i < length; i++) {
       let node = queue.shift();
@@ -29,7 +29,7 @@ var levelOrder = function(root) {
       }
     }
   }
-  return result;
+  return res;
 };
 
 /**
