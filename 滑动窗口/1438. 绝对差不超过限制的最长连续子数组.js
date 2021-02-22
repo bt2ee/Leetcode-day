@@ -35,10 +35,10 @@ var longestSubarray = function(nums, limit) {
     left = 0,
     right = 1;
   while (right < nums.length) {
-    if (max.length > 0 && max[max.length - 1] < nums[right]) {
+    while (max.length > 0 && max[max.length - 1] < nums[right]) {
       max.pop()
     }
-    if (min.length > 0 && min[min.length - 1] > nums[right]) {
+    while (min.length > 0 && min[min.length - 1] > nums[right]) {
       min.pop()
     }
     max.push(nums[right])
